@@ -1,0 +1,914 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="开饭啦 - 您的智能美食生活助手，提供海量家常菜谱、特色美食推荐、营养搭配建议及厨房烹饪技巧，让每一餐都充满爱与美味。">
+    <meta name="keywords" content="开饭啦,家常菜谱,美食推荐,烹饪技巧,营养餐,菜谱大全">
+    <title>开饭啦-海量家常菜谱与美食生活指南</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #ff6b6b;
+            --secondary-color: #ff9f43;
+            --accent-color: #1dd1a1;
+            --text-dark: #2d3436;
+            --text-gray: #636e72;
+            --bg-light: #f7f9fc;
+            --white: #ffffff;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            --radius: 12px;
+            --container-width: 1200px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+            color: var(--text-dark);
+            background-color: var(--bg-light);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+            object-fit: cover;
+        }
+
+        /* Utility */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 24px;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: var(--white);
+            box-shadow: 0 4px 10px rgba(255, 107, 107, 0.3);
+        }
+
+        .btn-primary:hover {
+            background-color: #ff5252;
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+            background: transparent;
+        }
+
+        .btn-outline:hover {
+            background-color: var(--primary-color);
+            color: var(--white);
+        }
+
+        /* Header */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo span {
+            color: var(--text-dark);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            font-weight: 500;
+            color: var(--text-dark);
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--primary-color);
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .search-bar {
+            display: flex;
+            background: var(--bg-light);
+            border-radius: 50px;
+            padding: 5px 15px;
+            align-items: center;
+            width: 300px;
+        }
+
+        .search-bar input {
+            border: none;
+            background: transparent;
+            outline: none;
+            width: 100%;
+            padding: 5px;
+            font-size: 0.95rem;
+        }
+
+        .search-bar button {
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: var(--text-gray);
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            background: linear-gradient(135deg, #fff0f0 0%, #fff5e6 100%);
+            padding: 80px 0;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .hero-text h1 {
+            font-size: 3rem;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            color: var(--text-dark);
+        }
+
+        .hero-text h1 span {
+            color: var(--primary-color);
+        }
+
+        .hero-text p {
+            font-size: 1.1rem;
+            color: var(--text-gray);
+            margin-bottom: 30px;
+            max-width: 500px;
+        }
+
+        .hero-image {
+            position: relative;
+        }
+
+        .hero-image img {
+            border-radius: var(--radius);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            width: 100%;
+            height: auto;
+        }
+
+        .hero-tags {
+            margin-top: 30px;
+            display: flex;
+            gap: 10px;
+        }
+
+        .tag {
+            background: rgba(255, 107, 107, 0.1);
+            color: var(--primary-color);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        /* Quick Stats */
+        .stats-bar {
+            background: var(--white);
+            padding: 30px 0;
+            margin-top: -40px;
+            position: relative;
+            z-index: 10;
+            box-shadow: var(--shadow);
+            border-radius: var(--radius);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            text-align: center;
+        }
+
+        .stat-item h3 {
+            font-size: 2rem;
+            color: var(--secondary-color);
+            margin-bottom: 5px;
+        }
+
+        .stat-item p {
+            font-size: 0.9rem;
+            color: var(--text-gray);
+        }
+
+        /* Section Titles */
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 30px;
+        }
+
+        .section-title h2 {
+            font-size: 1.8rem;
+            color: var(--text-dark);
+            position: relative;
+            padding-left: 15px;
+        }
+
+        .section-title h2::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 5px;
+            height: 24px;
+            background-color: var(--primary-color);
+            border-radius: 3px;
+        }
+
+        .view-all {
+            color: var(--primary-color);
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        .view-all:hover {
+            text-decoration: underline;
+        }
+
+        /* Recipe Grid */
+        .recipe-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+            padding: 40px 0;
+        }
+
+        .recipe-card {
+            background: var(--white);
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .recipe-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 24px rgba(0,0,0,0.12);
+        }
+
+        .card-image {
+            height: 200px;
+            position: relative;
+        }
+
+        .card-image img {
+            width: 100%;
+            height: 100%;
+        }
+
+        .badge {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: rgba(0,0,0,0.6);
+            color: #fff;
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            backdrop-filter: blur(4px);
+        }
+
+        .badge.vegetarian { background-color: #1dd1a1; }
+        .badge.quick { background-color: var(--secondary-color); }
+
+        .card-content {
+            padding: 20px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-title {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .card-meta {
+            display: flex;
+            gap: 15px;
+            font-size: 0.85rem;
+            color: var(--text-gray);
+            margin-bottom: 15px;
+        }
+
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .card-desc {
+            font-size: 0.9rem;
+            color: var(--text-gray);
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+
+        .card-footer {
+            border-top: 1px solid #eee;
+            padding-top: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .author {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .author img {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+        }
+
+        .author-name {
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        /* Categories */
+        .categories-section {
+            padding: 60px 0;
+            background-color: var(--white);
+        }
+
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 20px;
+        }
+
+        .category-item {
+            background: var(--bg-light);
+            padding: 20px;
+            border-radius: var(--radius);
+            text-align: center;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .category-item:hover {
+            background: var(--primary-color);
+        }
+
+        .category-item:hover .cat-icon,
+        .category-item:hover .cat-name {
+            color: var(--white);
+        }
+
+        .cat-icon {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .cat-name {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        /* Features */
+        .features {
+            padding: 60px 0;
+            background-color: var(--bg-light);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+        }
+
+        .feature-box {
+            text-align: center;
+            padding: 30px;
+            background: var(--white);
+            border-radius: var(--radius);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+        }
+
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            background: rgba(255, 107, 107, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 1.5rem;
+            color: var(--primary-color);
+        }
+
+        .feature-box h3 {
+            margin-bottom: 10px;
+            color: var(--text-dark);
+        }
+
+        .feature-box p {
+            color: var(--text-gray);
+            font-size: 0.95rem;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            padding: 80px 0;
+            text-align: center;
+            color: var(--white);
+        }
+
+        .cta-section h2 {
+            font-size: 2.2rem;
+            margin-bottom: 15px;
+        }
+
+        .cta-section p {
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #2d3436;
+            color: #dfe6e9;
+            padding: 60px 0 20px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-brand h3 {
+            font-size: 1.5rem;
+            color: var(--white);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .footer-brand p {
+            color: #b2bec3;
+            font-size: 0.9rem;
+            max-width: 300px;
+        }
+
+        .footer-col h4 {
+            color: var(--white);
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 12px;
+        }
+
+        .footer-col ul li a {
+            color: #b2bec3;
+            font-size: 0.9rem;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--primary-color);
+        }
+
+        .copyright {
+            border-top: 1px solid #636e72;
+            padding-top: 20px;
+            text-align: center;
+            font-size: 0.85rem;
+            color: #636e72;
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-text h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-text p {
+                margin: 0 auto 30px;
+            }
+
+            .hero-tags {
+                justify-content: center;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 30px;
+            }
+
+            .category-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none; /* Simplified for mobile */
+            }
+
+            .search-bar {
+                display: none;
+            }
+
+            .recipe-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .category-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container nav-wrapper">
+            <a href="#" class="logo">
+                🍳 开饭啦 <span>Finel</span>
+            </a>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="#">首页</a></li>
+                    <li><a href="#">家常菜谱</a></li>
+                    <li><a href="#">美食分类</a></li>
+                    <li><a href="#">厨房技巧</a></li>
+                    <li><a href="#">视频教程</a></li>
+                </ul>
+            </nav>
+            <div class="search-bar">
+                <input type="text" placeholder="搜索菜名、食材...">
+                <button type="button">🔍</button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container hero-content">
+                <div class="hero-text">
+                    <h1>今天，<span>开饭啦</span>！</h1>
+                    <p>无论你是厨房新手还是烹饪达人，这里都有为你准备的灵感。海量高清食谱，简单易学，让每一餐都成为享受。</p>
+                    <div class="hero-tags">
+                        <span class="tag"># 30分钟快手餐</span>
+                        <span class="tag"># 素食主义</span>
+                        <span class="tag"># 家常红烧</span>
+                    </div>
+                    <br>
+                    <a href="#" class="btn btn-primary">开始探索食谱</a>
+                    <a href="#" class="btn btn-outline" style="margin-left: 10px;">上传我的菜谱</a>
+                </div>
+                <div class="hero-image">
+                    <!-- 使用 Picsum 生成随机美食图片 -->
+                    <img src="https://picsum.photos/seed/foodhero1/600/400" alt="美味家常菜展示">
+                </div>
+            </div>
+        </section>
+
+        <!-- Stats Bar -->
+        <div class="container">
+            <div class="stats-bar">
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <h3>5000+</h3>
+                        <p>精选菜谱</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>100万+</h3>
+                        <p>美食爱好者</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>50万+</h3>
+                        <p>原创内容</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>24h</h3>
+                        <p>极速更新</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Categories -->
+        <section class="categories-section">
+            <div class="container">
+                <div class="section-header">
+                    <div class="section-title">
+                        <h2>热门美食分类</h2>
+                    </div>
+                    <a href="#" class="view-all">查看全部分类 &rarr;</a>
+                </div>
+                <div class="category-grid">
+                    <div class="category-item">
+                        <span class="cat-icon">🍲</span>
+                        <span class="cat-name">热菜</span>
+                    </div>
+                    <div class="category-item">
+                        <span class="cat-icon">🥗</span>
+                        <span class="cat-name">凉菜</span>
+                    </div>
+                    <div class="category-item">
+                        <span class="cat-icon">🍜</span>
+                        <span class="cat-name">面点</span>
+                    </div>
+                    <div class="category-item">
+                        <span class="cat-icon">🍰</span>
+                        <span class="cat-name">甜点</span>
+                    </div>
+                    <div class="category-item">
+                        <span class="cat-icon">🥘</span>
+                        <span class="cat-name">汤羹</span>
+                    </div>
+                    <div class="category-item">
+                        <span class="cat-icon">🍳</span>
+                        <span class="cat-name">早餐</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Recipes -->
+        <section class="recipes">
+            <div class="container">
+                <div class="section-header">
+                    <div class="section-title">
+                        <h2>本周精选食谱</h2>
+                    </div>
+                    <a href="#" class="view-all">更多推荐 &rarr;</a>
+                </div>
+                <div class="recipe-grid">
+                    <!-- Card 1 -->
+                    <article class="recipe-card">
+                        <div class="card-image">
+                            <span class="badge quick">快手</span>
+                            <img src="https://picsum.photos/seed/recipe1/400/300" alt="西红柿炒鸡蛋">
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">经典西红柿炒鸡蛋</h3>
+                            <div class="card-meta">
+                                <span class="meta-item">⏱ 15分钟</span>
+                                <span class="meta-item">🔥 难度：简单</span>
+                            </div>
+                            <p class="card-desc">国民家常菜，酸甜可口，色泽红亮，适合新手入门的第一道菜。</p>
+                            <div class="card-footer">
+                                <div class="author">
+                                    <img src="https://picsum.photos/seed/user1/50/50" alt="头像">
+                                    <span class="author-name">李大厨</span>
+                                </div>
+                                <button class="btn btn-outline" style="padding: 5px 15px; font-size: 0.8rem;">收藏</button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Card 2 -->
+                    <article class="recipe-card">
+                        <div class="card-image">
+                            <span class="badge vegetarian">素食</span>
+                            <img src="https://picsum.photos/seed/recipe2/400/300" alt="清炒时蔬">
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">蒜蓉清炒时蔬</h3>
+                            <div class="card-meta">
+                                <span class="meta-item">⏱ 10分钟</span>
+                                <span class="meta-item">🔥 难度：简单</span>
+                            </div>
+                            <p class="card-desc">保留蔬菜原汁原味，健康低脂，是减脂期的最佳选择。</p>
+                            <div class="card-footer">
+                                <div class="author">
+                                    <img src="https://picsum.photos/seed/user2/50/50" alt="头像">
+                                    <span class="author-name">健康达人</span>
+                                </div>
+                                <button class="btn btn-outline" style="padding: 5px 15px; font-size: 0.8rem;">收藏</button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Card 3 -->
+                    <article class="recipe-card">
+                        <div class="card-image">
+                            <img src="https://picsum.photos/seed/recipe3/400/300" alt="红烧肉">
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">五星级红烧肉</h3>
+                            <div class="card-meta">
+                                <span class="meta-item">⏱ 90分钟</span>
+                                <span class="meta-item">🔥 难度：中等</span>
+                            </div>
+                            <p class="card-desc">肥而不腻，入口即化，色泽红亮诱人，下饭神器。</p>
+                            <div class="card-footer">
+                                <div class="author">
+                                    <img src="https://picsum.photos/seed/user3/50/50" alt="头像">
+                                    <span class="author-name">老王厨房</span>
+                                </div>
+                                <button class="btn btn-outline" style="padding: 5px 15px; font-size: 0.8rem;">收藏</button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Card 4 -->
+                    <article class="recipe-card">
+                        <div class="card-image">
+                            <span class="badge quick">快手</span>
+                            <img src="https://picsum.photos/seed/recipe4/400/300" alt="番茄牛腩">
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">番茄牛腩煲</h3>
+                            <div class="card-meta">
+                                <span class="meta-item">⏱ 60分钟</span>
+                                <span class="meta-item">🔥 难度：中等</span>
+                            </div>
+                            <p class="card-desc">汤汁浓郁，牛腩软烂，搭配米饭简直是绝配，暖胃又暖心。</p>
+                            <div class="card-footer">
+                                <div class="author">
+                                    <img src="https://picsum.photos/seed/user4/50/50" alt="头像">
+                                    <span class="author-name">美食家小张</span>
+                                </div>
+                                <button class="btn btn-outline" style="padding: 5px 15px; font-size: 0.8rem;">收藏</button>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features -->
+        <section class="features">
+            <div class="container">
+                <div class="features-grid">
+                    <div class="feature-box">
+                        <div class="feature-icon">📝</div>
+                        <h3>步骤详解</h3>
+                        <p>每道菜都配有高清步骤图和文字说明，从选材到摆盘，手把手教你做。</p>
+                    </div>
+                    <div class="feature-box">
+                        <div class="feature-icon">💡</div>
+                        <h3>烹饪技巧</h3>
+                        <p>独家秘制酱汁配方和火候控制技巧，让你轻松掌握大厨味道。</p>
+                    </div>
+                    <div class="feature-box">
+                        <div class="feature-icon">📱</div>
+                        <h3>移动端适配</h3>
+                        <p>随时随地查看食谱，支持离线下载，做饭时再也不怕手机没电。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="cta-section">
+            <div class="container">
+                <h2>加入开饭啦社区</h2>
+                <p>分享你的拿手好菜，获取美食灵感，与千万美食爱好者一起交流。</p>
+                <a href="#" class="btn" style="background: white; color: var(--primary-color);">免费注册账号</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h3>🍳 开饭啦</h3>
+                    <p>专注于分享美味食谱与生活技巧，致力于让每个人都能轻松享受烹饪的乐趣。</p>
+                </div>
+                <div class="footer-col">
+                    <h4>关于我们</h4>
+                    <ul>
+                        <li><a href="#">公司简介</a></li>
+                        <li><a href="#">加入我们</a></li>
+                        <li><a href="#">联系方式</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>帮助中心</h4>
+                    <ul>
+                        <li><a href="#">使用指南</a></li>
+                        <li><a href="#">常见问题</a></li>
+                        <li><a href="#">意见反馈</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>关注我们</h4>
+                    <ul>
+                        <li><a href="#">微信公众号</a></li>
+                        <li><a href="#">新浪微博</a></li>
+                        <li><a href="#">小红书</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 开饭啦 Finel. All Rights Reserved. 仅供演示使用。</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+                  </html>
