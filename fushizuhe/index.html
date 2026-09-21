@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="符石组合攻略大全，提供手游与网游中符石搭配推荐、属性克制关系及实战应用指南，助您轻松搭配最强符石组合。">
+    <meta name="keywords" content="符石组合,符石搭配,符石攻略,手游符石,网游符石">
+    <title>符石组合-符石搭配攻略与实战应用指南</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --bg-body: #0f1115;
+            --bg-card: #181b21;
+            --bg-header: #15181e;
+            --text-main: #e0e0e0;
+            --text-muted: #8b9bb4;
+            --accent-primary: #6c5ce7;
+            --accent-secondary: #00cec9;
+            --accent-gold: #fdcb6e;
+            --border-color: #2d3436;
+            --spacing-unit: 1rem;
+            --container-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--bg-header);
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        .header-inner {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--text-main);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo span {
+            color: var(--accent-primary);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            font-weight: 500;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--accent-primary);
+        }
+
+        .search-btn {
+            background: none;
+            border: 1px solid var(--border-color);
+            color: var(--text-main);
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .search-btn:hover {
+            border-color: var(--accent-primary);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, rgba(108, 92, 231, 0.15) 0%, rgba(0, 206, 201, 0.1) 100%);
+            padding: 4rem 0;
+            text-align: center;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(to right, var(--accent-secondary), var(--accent-primary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            color: var(--text-muted);
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            font-size: 1.1rem;
+        }
+
+        .hero-tags {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            border: 1px solid transparent;
+        }
+
+        .tag:hover {
+            border-color: var(--accent-primary);
+            color: var(--accent-primary);
+        }
+
+        /* Main Content */
+        main {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 3rem 1rem;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .section-title::before {
+            content: '';
+            display: block;
+            width: 4px;
+            height: 24px;
+            background: var(--accent-primary);
+            border-radius: 2px;
+        }
+
+        /* Grid Layouts */
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .grid-4 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5rem;
+        }
+
+        /* Card Styles */
+        .card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.2s, box-shadow 0.2s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            border-color: var(--accent-primary);
+        }
+
+        .card-image {
+            height: 160px;
+            background-color: #2d3436;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.8;
+            transition: opacity 0.3s;
+        }
+
+        .card:hover .card-image img {
+            opacity: 1;
+        }
+
+        .card-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: rgba(0, 0, 0, 0.7);
+            color: var(--accent-gold);
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+
+        .card-content {
+            padding: 1.5rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-title {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .card-desc {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+        }
+
+        .card-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            border-top: 1px solid var(--border-color);
+            padding-top: 1rem;
+        }
+
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+
+        /* Attribute List Style */
+        .attr-list {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 2rem;
+        }
+
+        .attr-item {
+            display: flex;
+            align-items: center;
+            padding: 1rem 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .attr-item:last-child {
+            border-bottom: none;
+        }
+
+        .attr-icon {
+            width: 40px;
+            height: 40px;
+            background: rgba(108, 92, 231, 0.1);
+            color: var(--accent-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1rem;
+            font-weight: bold;
+        }
+
+        .attr-info {
+            flex-grow: 1;
+        }
+
+        .attr-name {
+            font-weight: 600;
+            margin-bottom: 0.2rem;
+        }
+
+        .attr-desc {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .attr-value {
+            font-family: monospace;
+            background: #000;
+            padding: 0.3rem 0.6rem;
+            border-radius: 4px;
+            color: var(--accent-secondary);
+            font-size: 0.9rem;
+        }
+
+        /* Guide Section */
+        .guide-section {
+            background-color: #15181e;
+            padding: 3rem;
+            border-radius: 12px;
+            margin-bottom: 3rem;
+        }
+
+        .guide-step {
+            display: flex;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .step-num {
+            font-size: 2rem;
+            font-weight: 800;
+            color: rgba(255, 255, 255, 0.05);
+            line-height: 1;
+        }
+
+        .step-content h3 {
+            margin-bottom: 0.5rem;
+            color: var(--accent-secondary);
+        }
+
+        .step-content p {
+            color: var(--text-muted);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--bg-header);
+            border-top: 1px solid var(--border-color);
+            padding: 3rem 1rem 1rem;
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-col h4 {
+            color: var(--text-main);
+            margin-bottom: 1.2rem;
+            font-size: 1.1rem;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-col ul li a {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--accent-primary);
+        }
+
+        .footer-bottom {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--border-color);
+            text-align: center;
+            color: #555;
+            font-size: 0.85rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-inner {
+                flex-direction: column;
+                height: auto;
+                padding: 1rem;
+                gap: 1rem;
+            }
+            
+            nav ul {
+                gap: 1rem;
+                font-size: 0.9rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .grid-3, .grid-4 {
+                grid-template-columns: 1fr;
+            }
+            
+            .guide-section {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-inner">
+            <div class="logo">
+                <span>◆</span> 符石组合库
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">首页</a></li>
+                    <li><a href="#">热门组合</a></li>
+                    <li><a href="#">属性图鉴</a></li>
+                    <li><a href="#">新手攻略</a></li>
+                </ul>
+            </nav>
+            <button class="search-btn">搜索组合</button>
+        </div>
+    </header>
+
+    <section class="hero">
+        <h1>符石组合全攻略</h1>
+        <p>汇集全网最全符石搭配方案，助您在战斗中释放最强战力。无论是RPG、MOBA还是策略游戏，找到最适合您的符石组合。</p>
+        <div class="hero-tags">
+            <a href="#" class="tag">火焰属性</a>
+            <a href="#" class="tag">雷电属性</a>
+            <a href="#" class="tag">防御强化</a>
+            <a href="#" class="tag">暴击流</a>
+            <a href="#" class="tag">回复流</a>
+        </div>
+    </section>
+
+    <main>
+        <!-- Guide Section -->
+        <section class="guide-section">
+            <h2 class="section-title">如何选择符石组合</h2>
+            <div class="guide-step">
+                <div class="step-num">01</div>
+                <div class="step-content">
+                    <h3>分析角色定位</h3>
+                    <p>首先确定您的核心角色是输出（DPS）、坦克（T）还是辅助。输出角色应优先考虑攻击力与暴击，坦克则需堆叠防御与生命值。</p>
+                </div>
+            </div>
+            <div class="guide-step">
+                <div class="step-num">02</div>
+                <div class="step-content">
+                    <h3>匹配技能机制</h3>
+                    <p>查看角色的主动技能和被动技能。如果角色技能有斩杀效果，搭配增加暴击率的符石能最大化收益。</p>
+                </div>
+            </div>
+            <div class="guide-step">
+                <div class="step-num">03</div>
+                <div class="step-content">
+                    <h3>考虑属性克制</h3>
+                    <p>在PVP对战中，了解敌方属性并选择相克的符石组合（如火克冰），能获得额外的属性加成。</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Combinations -->
+        <section>
+            <h2 class="section-title">热门符石组合推荐</h2>
+            <div class="grid-3">
+                <!-- Card 1 -->
+                <article class="card">
+                    <div class="card-image">
+                        <img src="https://picsum.photos/seed/fire/400/250" alt="火焰狂暴组合">
+                        <span class="card-badge">T0级</span>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">火焰狂暴·连击流</h3>
+                        <p class="card-desc">适合高攻速刺客，通过叠加火焰伤害实现瞬间爆发，瞬间清空敌方前排。</p>
+                        <div class="card-meta">
+                            <span class="meta-item">🔥 火焰</span>
+                            <span class="meta-item">⚡ 爆发</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Card 2 -->
+                <article class="card">
+                    <div class="card-image">
+                        <img src="https://picsum.photos/seed/ice/400/250" alt="冰霜控制组合">
+                        <span class="card-badge">控制</span>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">冰霜冻结·控制流</h3>
+                        <p class="card-desc">降低敌方命中率与移动速度，配合队友集火，是PVP中的强力控场手段。</p>
+                        <div class="card-meta">
+                            <span class="meta-item">❄️ 冰霜</span>
+                            <span class="meta-item">🛡️ 控制</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Card 3 -->
+                <article class="card">
+                    <div class="card-image">
+                        <img src="https://picsum.photos/seed/nature/400/250" alt="自然守护组合">
+                        <span class="card-badge">生存</span>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">自然守护·续航流</h3>
+                        <p class="card-desc">提供持续的生命回复与减伤效果，让坦克在战场上屹立不倒，吸收海量伤害。</p>
+                        <div class="card-meta">
+                            <span class="meta-item">🌿 自然</span>
+                            <span class="meta-item">💚 回复</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Card 4 -->
+                <article class="card">
+                    <div class="card-image">
+                        <img src="https://picsum.photos/seed/light/400/250" alt="神圣净化组合">
+                        <span class="card-badge">净化</span>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">神圣净化·破防流</h3>
+                        <p class="card-desc">对黑暗属性敌人造成额外真实伤害，并降低其防御力，是破盾神器。</p>
+                        <div class="card-meta">
+                            <span class="meta-item">✨ 神圣</span>
+                            <span class="meta-item">⚔️ 破防</span>
+                        </div>
+                    </div>
+                </article>
+                
+                <!-- Card 5 -->
+                <article class="card">
+                    <div class="card-image">
+                        <img src="https://picsum.photos/seed/shadow/400/250" alt="暗影刺客组合">
+                        <span class="card-badge">隐身</span>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">暗影突袭·隐身流</h3>
+                        <p class="card-desc">进入隐身状态并增加闪避率，适合切入敌方后排击杀关键目标。</p>
+                        <div class="card-meta">
+                            <span class="meta-item">🌑 暗影</span>
+                            <span class="meta-item">👻 隐身</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Card 6 -->
+                <article class="card">
+                    <div class="card-image">
+                        <img src="https://picsum.photos/seed/earth/400/250" alt="大地稳固组合">
+                        <span class="card-badge">防御</span>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">大地稳固·反伤流</h3>
+                        <p class="card-desc">受到攻击时反弹伤害，让敌人不敢轻易近身，迫使敌方改变战术。</p>
+                        <div class="card-meta">
+                            <span class="meta-item">⛰️ 大地</span>
+                            <span class="meta-item">💥 反伤</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Attribute Details -->
+        <section>
+            <h2 class="section-title">符石属性详解</h2>
+            <div class="attr-list">
+                <div class="attr-item">
+                    <div class="attr-icon">A</div>
+                    <div class="attr-info">
+                        <div class="attr-name">攻击力加成</div>
+                        <div class="attr-desc">基础伤害提升，适用于所有物理与法术输出角色。</div>
+                    </div>
+                    <div class="attr-value">+15% ATK</div>
+                </div>
+                <div class="attr-item">
+                    <div class="attr-icon">D</div>
+                    <div class="attr-info">
+                        <div class="attr-name">暴击率提升</div>
+                        <div class="attr-desc">增加触发暴击的几率，是高爆发流派的核心属性。</div>
+                    </div>
+                    <div class="attr-value">+8% Crit Rate</div>
+                </div>
+                <div class="attr-item">
+                    <div class="attr-icon">H</div>
+                    <div class="attr-info">
+                        <div class="attr-name">生命值上限</div>
+                        <div class="attr-desc">提高角色的生存能力，防止被瞬间秒杀。</div>
+                    </div>
+                    <div class="attr-value">+1200 HP</div>
+                </div>
+                <div class="attr-item">
+                    <div class="attr-icon">R</div>
+                    <div class="attr-info">
+                        <div class="attr-name">抗性穿透</div>
+                        <div class="attr-desc">无视敌方部分防御属性，确保伤害稳定输出。</div>
+                    </div>
+                    <div class="attr-value">-10% DEF</div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-col">
+                <div class="logo" style="margin-bottom: 1rem;">
+                    <span>◆</span> 符石组合库
+                </div>
+                <p style="color: var(--text-muted); font-size: 0.9rem;">
+                    专注于游戏符石搭配攻略，提供最新的数据与最实用的组合推荐，打造您的专属游戏攻略库。
+                </p>
+            </div>
+            <div class="footer-col">
+                <h4>快速链接</h4>
+                <ul>
+                    <li><a href="#">热门推荐</a></li>
+                    <li><a href="#">最新更新</a></li>
+                    <li><a href="#">排行榜</a></li>
+                    <li><a href="#">提交攻略</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>属性分类</h4>
+                <ul>
+                    <li><a href="#">火焰系</a></li>
+                    <li><a href="#">冰霜系</a></li>
+                    <li><a href="#">雷电系</a></li>
+                    <li><a href="#">神圣系</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>联系我们</h4>
+                <ul>
+                    <li><a href="#">关于我们</a></li>
+                    <li><a href="#">用户协议</a></li>
+                    <li><a href="#">隐私政策</a></li>
+                    <li><a href="#">意见反馈</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2023 符石组合库 All Rights Reserved.
+        </div>
+    </footer>
+
+</body>
+</html>
