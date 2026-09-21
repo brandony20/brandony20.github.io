@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="大岛丈番号大全收录大岛丈相关影视作品索引，提供详细的影片资料、演员介绍及在线观看入口。">
+    <meta name="keywords" content="大岛丈,大岛丈番号大全,大岛丈作品,大岛丈影片,大岛丈在线">
+    <title>大岛丈番号大全-演员资料与作品索引</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --bg-color: #f5f7fa;
+            --card-bg: #ffffff;
+            --text-main: #1f2937;
+            --text-secondary: #6b7280;
+            --accent-color: #3b82f6;
+            --border-color: #e5e7eb;
+            --spacing-sm: 8px;
+            --spacing-md: 16px;
+            --spacing-lg: 24px;
+            --radius: 8px;
+            --shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* Layout */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-md);
+        }
+
+        /* Header */
+        header {
+            background-color: var(--card-bg);
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 64px;
+        }
+
+        .logo {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text-main);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo span {
+            color: var(--accent-color);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: var(--spacing-lg);
+        }
+
+        nav a {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            transition: color 0.2s;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--accent-color);
+        }
+
+        .search-bar {
+            display: none;
+        }
+
+        @media (min-width: 768px) {
+            .search-bar {
+                display: flex;
+                flex: 1;
+                max-width: 400px;
+                margin: 0 var(--spacing-lg);
+            }
+            .search-bar input {
+                width: 100%;
+                padding: 8px 12px;
+                border: 1px solid var(--border-color);
+                border-radius: 20px;
+                background: var(--bg-color);
+                outline: none;
+            }
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2rem;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .hero p {
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto var(--spacing-lg);
+        }
+
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: var(--spacing-lg);
+            flex-wrap: wrap;
+        }
+
+        .stat-item {
+            background: rgba(255,255,255,0.15);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+
+        /* Main Content */
+        main {
+            padding: var(--spacing-lg) 0;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: var(--spacing-lg);
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: var(--spacing-sm);
+        }
+
+        .section-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+        }
+
+        .grid-layout {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: var(--spacing-md);
+        }
+
+        /* Card Component */
+        .card {
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            transition: transform 0.2s, box-shadow 0.2s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+
+        .card-image {
+            width: 100%;
+            aspect-ratio: 2/3;
+            background-color: #e5e7eb;
+            object-fit: cover;
+        }
+
+        .card-body {
+            padding: var(--spacing-md);
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-title {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 4px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .card-meta {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .card-tags {
+            margin-top: auto;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 4px;
+        }
+
+        .tag {
+            font-size: 0.75rem;
+            padding: 2px 6px;
+            background-color: #eff6ff;
+            color: var(--accent-color);
+            border-radius: 4px;
+        }
+
+        .btn-view {
+            display: block;
+            width: 100%;
+            text-align: center;
+            margin-top: var(--spacing-md);
+            padding: 8px;
+            background-color: var(--text-main);
+            color: white;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            transition: background 0.2s;
+        }
+
+        .btn-view:hover {
+            background-color: var(--accent-color);
+        }
+
+        /* About Section */
+        .about-section {
+            background: white;
+            padding: var(--spacing-lg);
+            border-radius: var(--radius);
+            margin-bottom: var(--spacing-lg);
+            border: 1px solid var(--border-color);
+        }
+
+        .about-content h2 {
+            margin-bottom: var(--spacing-md);
+            font-size: 1.5rem;
+        }
+
+        .about-content p {
+            margin-bottom: var(--spacing-md);
+            color: var(--text-secondary);
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--spacing-lg);
+            margin-top: var(--spacing-lg);
+            padding-top: var(--spacing-lg);
+            border-top: 1px solid var(--border-color);
+        }
+
+        .info-item h3 {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-bottom: 4px;
+        }
+
+        .info-item p {
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: var(--text-main);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #1f2937;
+            color: #d1d5db;
+            padding: 40px 0;
+            margin-top: var(--spacing-lg);
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: var(--spacing-md);
+        }
+
+        .footer-links {
+            display: flex;
+            gap: var(--spacing-lg);
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .copyright {
+            font-size: 0.85rem;
+            color: #9ca3af;
+        }
+
+        /* Responsive */
+        @media (max-width: 640px) {
+            .header-inner {
+                flex-direction: column;
+                height: auto;
+                padding: var(--spacing-sm) 0;
+                gap: var(--spacing-sm);
+            }
+            nav ul {
+                gap: var(--spacing-md);
+                font-size: 0.9rem;
+            }
+            .hero h1 {
+                font-size: 1.5rem;
+            }
+            .grid-layout {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="container header-inner">
+        <a href="#" class="logo">
+            <span>大岛丈</span>番号大全
+        </a>
+        <nav>
+            <ul>
+                <li><a href="#" class="active">首页</a></li>
+                <li><a href="#">作品列表</a></li>
+                <li><a href="#">演员资料</a></li>
+                <li><a href="#">最新收录</a></li>
+            </ul>
+        </nav>
+        <div class="search-bar">
+            <input type="text" placeholder="搜索作品名称或番号...">
+        </div>
+    </div>
+</header>
+
+<div class="hero">
+    <div class="container">
+        <h1>大岛丈作品全集索引</h1>
+        <p>收录大岛丈参演的影视作品，提供详细的剧情简介、上映时间及观看入口。</p>
+        <div class="stats">
+            <div class="stat-item">收录作品 128 部</div>
+            <div class="stat-item">最新更新 2023</div>
+            <div class="stat-item">高清在线观看</div>
+        </div>
+    </div>
+</div>
+
+<main class="container">
+    
+    <!-- About Section -->
+    <section class="about-section">
+        <div class="about-content">
+            <h2>关于大岛丈</h2>
+            <p>大岛丈是日本知名男演员，以其独特的表演风格和丰富的作品数量在业界拥有较高知名度。本站致力于为影迷提供全面、准确的演员资料及作品查询服务。</p>
+            <p>本站所有收录信息均来自公开资料整理，仅供资料查阅与学习交流使用。请支持正版影视作品。</p>
+            
+            <div class="info-grid">
+                <div class="info-item">
+                    <h3>出生年份</h3>
+                    <p>1960年</p>
+                </div>
+                <div class="info-item">
+                    <h3>代表作品</h3>
+                    <p>《XXX》、《YYY》等</p>
+                </div>
+                <div class="info-item">
+                    <h3>活跃时期</h3>
+                    <p>1990年代 - 至今</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Section -->
+    <section>
+        <div class="section-header">
+            <h2 class="section-title">热门推荐</h2>
+            <a href="#" style="font-size: 0.9rem; color: var(--accent-color);">查看更多 &rarr;</a>
+        </div>
+        <div class="grid-layout">
+            <!-- Card 1 -->
+            <article class="card">
+                <img src="https://picsum.photos/seed/oshima1/300/450" alt="作品封面" class="card-image">
+                <div class="card-body">
+                    <h3 class="card-title">大岛丈作品集锦 Vol.1</h3>
+                    <p class="card-meta">2023年 | 120分钟</p>
+                    <div class="card-tags">
+                        <span class="tag">剧情</span>
+                        <span class="tag">经典</span>
+                    </div>
+                    <a href="#" class="btn-view">立即观看</a>
+                </div>
+            </article>
+            <!-- Card 2 -->
+            <article class="card">
+                <img src="https://picsum.photos/seed/oshima2/300/450" alt="作品封面" class="card-image">
+                <div class="card-body">
+                    <h3 class="card-title">大岛丈精选集</h3>
+                    <p class="card-meta">2022年 | 90分钟</p>
+                    <div class="card-tags">
+                        <span class="tag">精选</span>
+                        <span class="tag">高清</span>
+                    </div>
+                    <a href="#" class="btn-view">立即观看</a>
+                </div>
+            </article>
+            <!-- Card 3 -->
+            <article class="card">
+                <img src="https://picsum.photos/seed/oshima3/300/450" alt="作品封面" class="card-image">
+                <div class="card-body">
+                    <h3 class="card-title">大岛丈最新力作</h3>
+                    <p class="card-meta">2023年 | 150分钟</p>
+                    <div class="card-tags">
+                        <span class="tag">新作</span>
+                        <span class="tag">热门</span>
+                    </div>
+                    <a href="#" class="btn-view">立即观看</a>
+                </div>
+            </article>
+            <!-- Card 4 -->
+            <article class="card">
+                <img src="https://picsum.photos/seed/oshima4/300/450" alt="作品封面" class="card-image">
+                <div class="card-body">
+                    <h3 class="card-title">大岛丈系列之...</h3>
+                    <p class="card-meta">2021年 | 100分钟</p>
+                    <div class="card-tags">
+                        <span class="tag">系列</span>
+                        <span class="tag">完整</span>
+                    </div>
+                    <a href="#" class="btn-view">立即观看</a>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <!-- List Section -->
+    <section style="margin-top: var(--spacing-lg);">
+        <div class="section-header">
+            <h2 class="section-title">作品列表</h2>
+        </div>
+        <div class="grid-layout">
+            <article class="card">
+                <img src="https://picsum.photos/seed/oshima5/300/450" alt="作品封面" class="card-image">
+                <div class="card-body">
+                    <h3 class="card-title">大岛丈：初次见面</h3>
+                    <p class="card-meta">2020-05-12</p>
+                    <a href="#" class="btn-view">查看详情</a>
+                </div>
+            </article>
+            <article class="card">
+                <img src="https://picsum.photos/seed/oshima6/300/450" alt="作品封面" class="card-image">
+                <div class="card-body">
+                    <h3 class="card-title">大岛丈：深夜剧</h3>
+                    <p class="card-meta">2020-06-15</p>
+                    <a href="#" class="btn-view">查看详情</a>
+                </div>
+            </article>
+            <article class="card">
+                <img src="https://picsum.photos/seed/oshima7/300/450" alt="作品封面" class="card-image">
+                <div class="card-body">
+                    <h3 class="card-title">大岛丈：特别篇</h3>
+                    <p class="card-meta">2020-08-20</p>
+                    <a href="#" class="btn-view">查看详情</a>
+                </div>
+            </article>
+        </div>
+    </section>
+
+</main>
+
+<footer>
+    <div class="container footer-content">
+        <div class="footer-links">
+            <a href="#">关于我们</a>
+            <a href="#">免责声明</a>
+            <a href="#">联系合作</a>
+            <a href="#">网站地图</a>
+        </div>
+        <p class="copyright">Copyright © 2023 大岛丈番号大全. All Rights Reserved.</p>
+        <p class="copyright" style="font-size: 0.75rem; max-width: 600px;">
+            本站内容仅供学习与交流，所有资源版权归原作者所有。请勿用于任何商业用途及非法用途。
+        </p>
+    </div>
+</footer>
+
+</body>
+</html>
