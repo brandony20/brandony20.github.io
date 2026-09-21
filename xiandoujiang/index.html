@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>咸豆浆-传统早餐风味与冲泡秘籍指南</title>
+    <meta name="description" content="咸豆浆是江浙沪地区经典的早餐选择。本站提供咸豆浆的历史文化介绍、经典配料清单、家庭自制冲泡方法以及不同店铺的口味评测，带您领略这一碗醇厚香浓的早餐风味。">
+    <meta name="keywords" content="咸豆浆, 早餐, 江南小吃, 豆浆制作, 豆浆配料">
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #6d4c41;
+            --secondary-color: #d7ccc8;
+            --accent-color: #ffb74d;
+            --text-color: #3e2723;
+            --bg-color: #fdfbf7;
+            --card-bg: #ffffff;
+            --border-radius: 12px;
+            --spacing-unit: 1rem;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s ease;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Layout */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+        }
+
+        header {
+            background-color: var(--card-bg);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo span {
+            font-size: 1.8rem;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            font-weight: 500;
+            color: var(--text-color);
+        }
+
+        nav a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #efebe9 0%, #fff3e0 100%);
+            padding: 4rem 0;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: #5d4037;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Section Styling */
+        section {
+            padding: 3rem 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 2.5rem;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background-color: var(--accent-color);
+            margin: 0.5rem auto 0;
+            border-radius: 2px;
+        }
+
+        /* Flavor Cards */
+        .flavor-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        .card-img {
+            width: 100%;
+            height: 180px;
+            background-color: var(--secondary-color);
+            object-fit: cover;
+        }
+
+        .card-content {
+            padding: 1.5rem;
+        }
+
+        .card-content h3 {
+            margin-bottom: 0.5rem;
+            color: var(--text-color);
+        }
+
+        .card-content p {
+            color: #666;
+            font-size: 0.95rem;
+        }
+
+        /* Ingredients */
+        .ingredients-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: start;
+        }
+
+        .ingredients-list {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+
+        .ingredients-list h3 {
+            margin-bottom: 1.5rem;
+            border-bottom: 2px solid var(--secondary-color);
+            padding-bottom: 0.5rem;
+        }
+
+        .ingredient-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+            font-size: 1.05rem;
+        }
+
+        .ingredient-icon {
+            width: 32px;
+            height: 32px;
+            background-color: var(--secondary-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1rem;
+            font-size: 0.9rem;
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+
+        .recipe-steps {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+
+        .step {
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .step::before {
+            content: attr(data-step);
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 1.5rem;
+            height: 1.5rem;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 1.5rem;
+            font-size: 0.9rem;
+        }
+
+        .step h4 {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Cultural Context */
+        .culture-section {
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: var(--border-radius);
+            padding: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .culture-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .culture-text h2 {
+            margin-bottom: 1rem;
+            font-size: 2rem;
+        }
+
+        .culture-text p {
+            margin-bottom: 1.5rem;
+            opacity: 0.9;
+        }
+
+        .culture-img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-radius: var(--border-radius);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        /* Comparison Table */
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            margin-top: 2rem;
+        }
+
+        .comparison-table th, .comparison-table td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid var(--secondary-color);
+        }
+
+        .comparison-table th {
+            background-color: var(--secondary-color);
+            color: var(--text-color);
+            font-weight: 600;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #3e2723;
+            color: #d7ccc8;
+            padding: 3rem 0;
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+
+        .footer-col h4 {
+            color: white;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--accent-color);
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-wrapper {
+                flex-direction: column;
+                height: auto;
+                padding: 1rem 0;
+            }
+            
+            nav ul {
+                margin-top: 1rem;
+                gap: 1rem;
+                font-size: 0.9rem;
+            }
+
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .ingredients-wrapper, .culture-content {
+                grid-template-columns: 1fr;
+            }
+
+            .comparison-table {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container nav-wrapper">
+            <a href="#" class="logo">
+                <span>🥣</span> 咸豆浆
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="#flavors">风味流派</a></li>
+                    <li><a href="#making">自制指南</a></li>
+                    <li><a href="#culture">文化背景</a></li>
+                    <li><a href="#comparison">南北差异</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h1>一碗江南的清晨温润</h1>
+                <p>咸豆浆并非简单的豆浆加调料，它是一种讲究层次、注重口感的经典中式早餐。探索它的历史、做法与独特风味。</p>
+            </div>
+        </section>
+
+        <!-- Flavor Introduction -->
+        <section id="flavors">
+            <div class="container">
+                <h2 class="section-title">经典咸豆浆风味流派</h2>
+                <div class="flavor-grid">
+                    <article class="card">
+                        <img src="https://picsum.photos/seed/sauce/400/250" alt="酱油冲豆浆" class="card-img">
+                        <div class="card-content">
+                            <h3>酱油冲豆浆</h3>
+                            <p>最传统的上海风味。滚烫的豆浆直接冲入加有酱油、虾皮、紫菜的碗中，利用余温激发出浓郁的酱香，口感醇厚。</p>
+                        </div>
+                    </article>
+                    <article class="card">
+                        <img src="https://picsum.photos/seed/vegetables/400/250" alt="素菜咸豆浆" class="card-img">
+                        <div class="card-content">
+                            <h3>素菜咸豆浆</h3>
+                            <p>在基础酱油汤底上加入油条碎、榨菜丁、葱花、香菜等。丰富的口感层次，每一口都是扎实的满足感。</p>
+                        </div>
+                    </article>
+                    <article class="card">
+                        <img src="https://picsum.photos/seed/meat/400/250" alt="肉包咸豆浆" class="card-img">
+                        <div class="card-content">
+                            <h3>肉包咸豆浆</h3>
+                            <p>部分地区特色，将肉松或肉包融入豆浆中，咸鲜中带有一丝肉香，适合喜欢重口味的人群。</p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Ingredients & Making -->
+        <section id="making">
+            <div class="container">
+                <h2 class="section-title">家庭自制咸豆浆</h2>
+                <div class="ingredients-wrapper">
+                    <div class="ingredients-list">
+                        <h3>核心配料清单</h3>
+                        <div class="ingredient-item">
+                            <span class="ingredient-icon">1</span>
+                            <span><strong>黄豆：</strong>提前浸泡4-6小时，这是香浓的基础。</span>
+                        </div>
+                        <div class="ingredient-item">
+                            <span class="ingredient-icon">2</span>
+                            <span><strong>酱油：</strong>生抽为主，少许老抽调色，提鲜的关键。</span>
+                        </div>
+                        <div class="ingredient-item">
+                            <span class="ingredient-icon">3</span>
+                            <span><strong>紫菜与虾皮：</strong>提供海味鲜香，不可省略。</span>
+                        </div>
+                        <div class="ingredient-item">
+                            <span class="ingredient-icon">4</span>
+                            <span><strong>油条/榨菜：</strong>增加脆爽口感的灵魂伴侣。</span>
+                        </div>
+                        <div class="ingredient-item">
+                            <span class="ingredient-icon">5</span>
+                            <span><strong>葱花与香菜：</strong>去腥增香，提亮色泽。</span>
+                        </div>
+                    </div>
+
+                    <div class="recipe-steps">
+                        <h3>制作步骤</h3>
+                        <div class="step" data-step="1">
+                            <h4>调制底料</h4>
+                            <p>在大碗中先放入紫菜、虾皮、葱花、香菜、榨菜丁和少许盐。倒入生抽和几滴香油。</p>
+                        </div>
+                        <div class="step" data-step="2">
+                            <h4>冲泡豆浆</h4>
+                            <p>将煮熟的豆浆过滤去渣，保持80度以上的滚烫状态，直接倒入装有底料的碗中。</p>
+                        </div>
+                        <div class="step" data-step="3">
+                            <h4>加入配菜</h4>
+                            <p>趁热将切碎的油条块放入碗中，搅拌均匀，即可享用。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Cultural Context -->
+        <section id="culture">
+            <div class="container">
+                <div class="culture-section">
+                    <div class="culture-content">
+                        <div class="culture-text">
+                            <h2>豆浆的南北之争</h2>
+                            <p>中国饮食文化中，豆浆的甜咸之争由来已久。咸豆浆主要流行于江浙沪、福建等南方地区。与北方的甜豆浆不同，咸豆浆更注重“汤”的概念。</p>
+                            <p>在江南的早餐铺里，咸豆浆往往是一碗热气腾腾的“汤”。它不仅仅是液体，更是一种可以喝的菜肴。滚烫的豆浆冲入调料，瞬间激发出食材的鲜味，这种独特的烹饪方式体现了南方饮食对“鲜”字的极致追求。</p>
+                        </div>
+                        <img src="https://picsum.photos/seed/soymilk/500/350" alt="传统豆浆摊" class="culture-img">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Comparison Table -->
+        <section id="comparison">
+            <div class="container">
+                <h2 class="section-title">咸豆浆与甜豆浆的区别</h2>
+                <div style="overflow-x: auto;">
+                    <table class="comparison-table">
+                        <thead>
+                            <tr>
+                                <th>对比维度</th>
+                                <th>咸豆浆</th>
+                                <th>甜豆浆</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>主要口味</strong></td>
+                                <td>鲜香、咸鲜、浓郁</td>
+                                <td>清甜、豆香、淡雅</td>
+                            </tr>
+                            <tr>
+                                <td><strong>常见配料</strong></td>
+                                <td>酱油、虾皮、紫菜、榨菜、油条</td>
+                                <td>白糖、红糖、芝麻糊</td>
+                            </tr>
+                            <tr>
+                                <td><strong>主要地区</strong></td>
+                                <td>上海、浙江、福建、台湾</td>
+                                <td>北京、东北、华北</td>
+                            </tr>
+                            <tr>
+                                <td><strong>饮食场景</strong></td>
+                                <td>佐以烧麦、生煎，作为主食</td>
+                                <td>佐以油条，或作为午后饮品</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <h4>关于咸豆浆</h4>
+                    <p>致力于挖掘和传承中国各地的传统早餐文化，特别是江南地区的经典风味。</p>
+                </div>
+                <div class="footer-col">
+                    <h4>快速导航</h4>
+                    <ul>
+                        <li><a href="#flavors">风味流派</a></li>
+                        <li><a href="#making">自制指南</a></li>
+                        <li><a href="#comparison">南北差异</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>相关资源</h4>
+                    <ul>
+                        <li><a href="#">豆浆机选购指南</a></li>
+                        <li><a href="#">传统早餐食谱</a></li>
+                        <li><a href="#">上海老字号早餐</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2023 咸豆浆文化指南. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
